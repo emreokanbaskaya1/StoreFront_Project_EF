@@ -12,6 +12,9 @@ namespace StoreFront.ViewComponents
             ViewBag.totalCategoryCount = context.Categories.Count();
             ViewBag.totalProductCount = context.Products.Count();
             ViewBag.avgCustomerBalance = context.Customers.Average(x=>x.CustomerBalance).ToString("00.00"+" TL");
+            ViewBag.totalOrderCount = context.Orders.Count();
+            ViewBag.sumOrderProductCount = context.Orders.Sum(x => x.OrderCount);
+
             return View();
         }
     }
