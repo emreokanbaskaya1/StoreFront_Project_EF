@@ -2,14 +2,9 @@
 
 namespace StoreFront.Controllers
 {
-    public class DashboardController : Controller
+    public class LayoutController : Controller
     {
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Statistics()
         {
             return View();
         }
