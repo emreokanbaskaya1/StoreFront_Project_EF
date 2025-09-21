@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "CustomerGetByCity";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<h1>CustomerGetByCity</h1>
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Are there any customer in the city?</h4>
+                
+                <form asp-action = "CustomerGetByCity" class="forms-sample" method="get">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Category Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Enter category name" name="city" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary mr-2">Check Customer!</button>
+                    
+                </form>
+                <br />
+                <div class="alert alert-success">@ViewBag.message</div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,25 +1,27 @@
-﻿@model List<Product>
+﻿@model List<Customer>
 @{
-    ViewData["Title"] = "ProductList";
+    ViewData["Title"] = "CustomerListOrderByCustomerName";
     Layout = "~/Views/Layout/Index.cshtml";
     int count = 0;
 }
+
+<h1>CustomerListOrderByCustomerName</h1>
+
 
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Product List</h3>
+                <h3 class="card-title">Customer List</h3>
 
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Product Name</th>
-                                <th>Product Price</th>
-                                <th>Category Name</th>
-                                <th>Number of Stocks</th>
+                                <th>Customer Name</th>
+                                <th>City</th>
+                                <th>Balance</th>
                                 <th>Delete</th>
                                 <th>Update</th>
                             </tr>
@@ -30,19 +32,17 @@
                                 count++;
                                 <tr>
                                     <td>@count</td>
-                                    <td>@item.ProductName</td>
-                                    <td>@item.ProductPrice TL</td>
-                                    <td>@item.Category.CategoryName</td>
-                                    <td>@item.ProductStock</td>
+                                    <td>@item.CustomerName @item.CustomerSurname</td>
+                                    <td>@item.CustomerCity / @item.CustomerDistrict</td>
+                                    <td>@item.CustomerBalance</td>
 
-
-                                    <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-outline-danger">Delete</a></td>
-                                    <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-success">Update</a></td>
+                                    <td><a href="/Customer/DeleteCustomer/@item.CustomerId" class="btn btn-outline-danger">Delete</a></td>
+                                    <td><a href="/Customer/UpdateCustomer/@item.CustomerId" class="btn btn-outline-success">Update</a></td>
                                 </tr>
                             }
                         </tbody>
                     </table>
-                    <a href="/Product/CreateProduct/" class="btn btn-outline-primary">Create Product</a>
+                    <a href="/Customer/CreateCustomer/" class="btn btn-outline-primary">Create New Customer</a>
                 </div>
             </div>
         </div>

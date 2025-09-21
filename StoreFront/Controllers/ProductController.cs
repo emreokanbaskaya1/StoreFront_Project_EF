@@ -68,5 +68,16 @@ namespace StoreFront.Controllers
             return RedirectToAction("ProductList");
         }
 
+        public IActionResult First5ProductList()
+        {
+            var values = _context.Products.Include(x=>x.Category).Take(5).ToList();
+            return View(values);
+        }
+
+        public IActionResult Skip4ProductItems()
+        {
+            var valuess = _context.Products.Include(x => x.Category).Skip(4).Take(10).ToList();
+            return View(valuess);
+        }
     }
 }
