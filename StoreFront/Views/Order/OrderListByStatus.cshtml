@@ -1,0 +1,65 @@
+﻿@model List<Order>
+
+@{
+    ViewData["Title"] = "OrderListByStatus";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Order List</h3>
+
+                <div class="table-responsive">
+
+
+                    <form asp-action="OrderListByStatus" method="get">
+                        <input type="text" name="status" placeholder="Enter status" class="form-control"/>
+                        <button type="submit" class="btn btn-primary mt2">Search</button>
+
+
+                    </form>
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Order Name</th>
+                                <th>Customer</th>
+                                <th>Order Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                               
+                                <tr>
+                                    <td>@item.OrderId</td>
+                                    <td>@item.ProductId</td>
+                                    <td>@item.CustomerId</td>
+                                    <td>@item.UnitPrice TL</td>
+                                    <td>@item.TotalPrice TL</td>
+                                    <td>@item.Status</td>
+
+
+                                    <td><a href="/Order/DeleteOrder/@item.OrderId" class="btn btn-outline-danger">Delete</a></td>
+                                    <td><a href="/Order/UpdateOrder/@item.OrderId" class="btn btn-outline-success">Update</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a href="/Order/CreateOrder/" class="btn btn-outline-primary">Create New Order</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- Close .row -->
